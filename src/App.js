@@ -6,7 +6,10 @@ import './App.css';
 
 // actions
 import { findBrewery } from './store/actions'
+
+// components
 import BreweryList from './components/BreweryList';
+import {BrewerySearch} from './components/BrewerySearch';
 
 
 function App(props) {
@@ -15,10 +18,13 @@ function App(props) {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Does it work?</h1>
-        <BreweryList brewery={props.brewery} />
-
+        <h1>Grab A Pint</h1>     
       </header>
+
+      <body className="App-body">
+        <BrewerySearch />
+        <BreweryList brewery={props.brewery} />
+      </body>
     </div>
   );
 }
