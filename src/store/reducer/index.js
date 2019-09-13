@@ -1,6 +1,10 @@
+import { FIND_BREWERY, FIND_BREWERY_SUCCESS } from '../actions';
+
 // https://api.openbrewerydb.org/breweries
 
 const initialState = {
+    isFetching: false,
+    error: '',
     brewery:[{
     id: 9999,
     name: "Almanac Beer Company",
@@ -16,13 +20,23 @@ const initialState = {
     website_url: "http://almanacbeer.com",
     updated_at: "2018-08-23T23:24:11.758Z",
     tag_list: []
-    }
+    },
    ]
 };
 
 
 export const reducer = (state = initialState, action ) => {
+    // console.log("REDUCER ACTION: ", action.payload);
     switch(action.type){
+    case FIND_BREWERY_SUCCESS:
+    console.log("SUCCESS state ", state)
+    // console.log("action ", action.payload)
+        const x = { 
+            ...state,
+             brewery: action.payload
+        }
+        // console.log("X: ", {...state.brewery, brewery: action.payload})
+        return x;
 
     default:
         return state;

@@ -1,11 +1,45 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import {findBrewery} from '../store/actions';
 
-export const BrewerySearch = () => {
+export const BrewerySearch = (props) => {
+    const {find, isFetching} = props;
+    const [newBreweryFind, setNewBreweryFind] = useState();
+    console.log("NewBreweryFind: ", newBreweryFind);
+
+// console.log("Brewery Search find: ", find)
+
+    // useEffect(() => {
+    //     find();
+    // },[find])
+
+    // if(isFetching){
+    //     return <h2>Loading...</h2>
+    // }
+
+    const handleChanges = e =>{
+        setNewBreweryFind(e.target.value);
+    }
+    const handleSubmit = e => {
+        e.preventDefault();
+        find(newBreweryFind);
+    }
 
     return(
-        <>
-        <input type="text" />
-        <button>Find a Pint</button>
-        </>
+      <>
+        <div className="searchBar">
+            <form onSubmit={handleSubmit}>
+                <input 
+                type="text" 
+                name="newBreweryFind" 
+                value={newBreweryFind}
+                onChange={handleChanges}
+                />
+                
+                <button onClick={handleSubmit} >
+                    Find a Pint
+                </button>
+            </form>
+        </div>
+      </>
     )
 };
