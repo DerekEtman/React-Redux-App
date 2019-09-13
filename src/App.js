@@ -27,10 +27,13 @@ function App({brewery, findBrewery, isFetching}) {
     <div className="App">
       <header className="App-header">
         <div className="welcome">
+          
           <h1>Search Bar</h1>
           <h4>Welcome to the Search Bar</h4>
-          <h5>Use our search to find a local brewery.</h5>
-        <BrewerySearch fetch={isFetching} find={newBrewerySearch}/>
+
+          <BrewerySearch fetch={isFetching} find={newBrewerySearch}/>
+          <p>Use our search to find a local brewery.</p>
+
         </div>
       </header>
 

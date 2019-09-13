@@ -31,11 +31,12 @@ export const BrewerySearch = (props) => {
                 <input 
                 type="text" 
                 name="newBreweryFind" 
+                className="searchField"
                 value={newBreweryFind}
                 onChange={handleChanges}
                 />
                 
-                <button onClick={handleSubmit} >
+                <button className="searchButton" onClick={handleSubmit} >
                     Find a Pint
                 </button>
             </form>
